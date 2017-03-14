@@ -58,6 +58,7 @@ public GDataStoreUtills gDataStreUtills=null;
       jsonObject.addProperty("order_otp",orderId);
     }catch(Exception e){
       e.printStackTrace();
+      jsonObject=new JsonObject();
       jsonObject.addProperty("status", "error"+e.getMessage());
     }finally {
       pm.close();
