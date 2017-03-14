@@ -1,0 +1,178 @@
+/* iCheck plugin Flat skin, green
+----------------------------------- */
+.icheckbox_flat-green,
+.iradio_flat-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-green {
+    background-position: 0 0;
+}
+    .icheckbox_flat-green.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-green.disabled {
+        background-position: -44px 0;
+        cursor: default;
+    }
+    .icheckbox_flat-green.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-green {
+    background-position: -88px 0;
+}
+    .iradio_flat-green.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-green.disabled {
+        background-position: -132px 0;
+        cursor: default;
+    }
+    .iradio_flat-green.checked.disabled {
+        background-position: -154px 0;
+    }
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .icheckbox_flat-green,
+    .iradio_flat-green {
+        background-image: url(green@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}
+
+.app-header{
+    background: #ffdbd9d9;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    z-index: 99;
+}
+
+.app-header .row {
+    margin-bottom: 0;
+}
+
+.pull-left {
+    float: left;
+}
+.ola-logo {
+    background: url(http://virranbi.appspot.com/images/rwateracannn.png);
+    width: 111px;
+    height: 40px;
+    background-size: 20%;
+}
+ .pull-right {
+    float: right;
+}
+.head-links:not(:first-child) {
+    border-left: 1px solid #bbb;
+}
+.head-links {
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+a {
+    color: #212121;
+    cursor: pointer;
+}
+.head-links:not(:first-child) {
+    border-left: 1px solid #bbb;
+}
+.head-links {
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 0 15px;
+}
+.dt-content {
+    padding-bottom: 24px;
+    margin-top: 60px;
+}
+.row .col.stamp-desktop.padding-10px-0 {
+    padding: 10px 0;
+}
+.dt-content .browse-topics {
+    border: 1px solid #e0e0e0;
+    box-shadow: none;
+    margin: 0 0 20px;
+}
+.clearfix {
+    clear: both;
+}
+.collection a.collection-item, .support-content a.collection-item {
+    color: #212121;
+    font-size: 16px;
+    padding: 16px;
+    -webkit-tap-highlight-color: transparent!important;
+}
+.dt-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+.browse-topics, .cust-card, .search-container {
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+}
+.cust-card {
+    margin: 0 0 16px;
+}
+.card .card-content {
+    padding: 16px;
+}
+.ride-left {
+    width: 100px;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: top;
+    margin-top: -2px;
+}
+.ride-right {
+    width: -webkit-calc(100% - 42px);
+    width: -moz-calc(100px - 42px);
+    width: calc(100% - 42px);
+    display: inline-block;
+}
+.cab-type, .first-capital, .journey-info {
+    text-transform: capitalize;
+}
+.journey-info {
+    font-weight: 500;
+}
+ .product-image {
+    display: inline-block;
+    float: left;
+    width: 50px;
+}
+ .product-image {
+    width: 90px;
+}
+.product-details {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: calc( 100% - 50px);
+    padding: 0.3em 0 0 0.5em;
+}
+.card-content .product-details {
+    padding: 1.4em 0 0 1em;
+    width: calc( 100% - 90px);
+}
+.card-content h3 a {
+    color: #2b3e51;
+}
+.journey-info {
+    font-weight: 500;
+}

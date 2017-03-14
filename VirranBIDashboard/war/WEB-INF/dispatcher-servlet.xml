@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- Scheduling and Sending E-Mail : Start -->
+	    <tx:annotation-driven/>
+	  
+	
+   <mvc:annotation-driven />
+   <context:component-scan base-package="com.virrantech.controllers,com.virrantech.restcontrollers"/>
+      <context:annotation-config/>
+  	<bean id="consumerDAOImpl" class="com.virrantech.daoimpl.ConsumerDAOImpl"/>
+   
+	<bean id="orderDAOImpl" class="com.virrantech.daoimpl.OrderDAOImpl"/>
+	<bean id="productDAOImpl" class="com.virrantech.daoimpl.ProductDAOImpl"/>
+	<bean id="shopDAOImpl" class="com.virrantech.daoimpl.ShopDAOImpl"/>
+   <!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:basename="views"/> -->
+   <bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/pages/" />
+		<property name="suffix" value=".jsp" />
+			
+	</bean>
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    
+        <property name="maxUploadSize" value="20971520" /> 
+         
+      
+        <property name="maxInMemorySize" value="1048576" />
+ 
+    </bean>
+  <!--  <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" p:definitions="/WEB-INF/tiles-defs.xml"/> -->
+   
+</beans>

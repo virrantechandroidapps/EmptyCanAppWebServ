@@ -1,0 +1,74 @@
+/*.usernameheader:hover > .dropdown-menu {
+    display: block;
+}*/
+aside ul > li > a > .glyphicon-menu-right {
+    display: none;
+}
+
+aside ul > li.active > a > .glyphicon-menu-right,
+aside ul > li:hover > a > .glyphicon-menu-right {
+    display: inline-block;
+}
+aside ul.nav-pills > li > a{
+	border-radius: 0;
+    border-bottom: 1px solid #ddd;
+	color: #c5c5c5;
+}
+.customnavbar .container-fluid {
+    padding: 0;
+}
+.customnavbar .container-fluid .navbar-collapse {
+    padding: 0;
+}
+.customnavbar .navbar-nav {}
+.customnavbar .navbar-nav > li{}
+.customnavbar .navbar-nav > li > a{
+    border-bottom: 2px solid transparent;
+    color: #c5c5c5;
+    padding: 5px 20px;
+}
+.customnavbar .navbar-nav > li.active > a{
+    border-color: #00d7ea;
+    color: #00d7ea;
+}
+.customnavbar .navbar-nav > li:hover > a{
+    background: transparent;
+    color: #00d7ea;
+}
+
+.customnavbar .navbar-toggle {
+    border-color: #ddd;
+}
+
+.customnavbar .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+aside ul.nav-pills > li.active > a,
+aside ul.nav-pills > li.active > a:hover,
+aside ul.nav-pills > li.active > a:focus {
+    background-color: #00d7ea;
+}
+
+aside ul.nav-pills > li > a:hover,
+aside ul.nav-pills > li > a:focus {
+    background-color: transparent;
+    color: #00d7ea;
+}
+div#product-carousel .carousel-control.left {
+    background: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+    border-width: 1px 0px 1px 1px;
+    opacity: 1;
+}
+
+div#product-carousel .carousel-control.right {
+    background: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+    border-width: 1px 1px 1px 0px;
+    opacity: 1;
+}
+.tableckick tbody tr {
+    cursor: pointer;
+}

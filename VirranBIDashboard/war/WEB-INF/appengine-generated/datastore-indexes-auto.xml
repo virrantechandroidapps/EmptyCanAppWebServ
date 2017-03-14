@@ -1,0 +1,24 @@
+<!-- Indices written at Tue, 14 Mar 2017 17:03:55 IST -->
+
+<datastore-indexes>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="ConsumerFCMInfoEntity" ancestor="false" source="auto">
+        <property name="consumerId" direction="asc"/>
+        <property name="consumerLastLoginDate" direction="desc"/>
+    </datastore-index>
+
+    <!-- Used 2 times in query history -->
+    <datastore-index kind="OrderInfoEntity" ancestor="false" source="auto">
+        <property name="consumerKey" direction="asc"/>
+        <property name="orderReceivedDateTime" direction="desc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="OrderInfoEntity" ancestor="false" source="auto">
+        <property name="distibutorId" direction="asc"/>
+        <property name="orderStatus" direction="asc"/>
+        <property name="orderReceivedDateTime" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>
