@@ -34,10 +34,12 @@ import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.images.ServingUrlOptions;
+import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.virrantech.entity.CartInfoEntity;
 import com.virrantech.entity.ConsumerAddress;
 import com.virrantech.entity.ConsumerFCMInfoEntity;
 import com.virrantech.entity.ConsumerProfile;
@@ -243,10 +245,34 @@ public class EmptyCanRestController     {
     return result.toString();
   }
   @RequestMapping(value="/consumer-new-order", method=RequestMethod.POST,consumes =MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE )
-  public @ResponseBody String consumerNewOrder(@RequestBody OrderInfoEntity  orderInfoEntity, HttpServletResponse response,HttpServletRequest request) throws PropertyVetoException, SQLException, JSONException {
+  public @ResponseBody String consumerNewOrder(@RequestBody String  orderInfoEntityStr, HttpServletResponse response,HttpServletRequest request) throws PropertyVetoException, SQLException, JSONException {
+    JSONObject jsonObject=new JSONObject(orderInfoEntityStr);
+    System.out.println(jsonObject);
+     JSONArray jsonArray= jsonObject.getJSONArray("cartInfoList");
+    
+     OrderInfoEntity orderInfoEntity=new OrderInfoEntity();
+     orderInfoEntity.setOrderAddressId(jsonObject.getLong("orderAddressId"));
+     orderInfoEntity.setConsumerKey(jsonObject.getLong("consumerKey"));
+     orderInfoEntity.setPaymentMode(jsonObject.getString("paymentMode"));
+     orderInfoEntity.setTotalPayment((float)jsonObject.getDouble("totalPayment"));
+     orderInfoEntity.setIsFirstTimeBooking(jsonObject.getString("isFirstTimeBooking"));
+     orderInfoEntity.setRefStatus(jsonObject.getString("refStatus"));
+     orderInfoEntity.setUserFcmId(jsonObject.getString("userFcmId"));
+     orderInfoEntity.setOrderStatus(jsonObject.getString("orderStatus"));
+     orderInfoEntity.setLatitude(jsonObject.getString("latitude"));
+     orderInfoEntity.setLongitude(jsonObject.getString("longitude"));
+     orderInfoEntity.setAltitude(jsonObject.getString("altitude"));
+     orderInfoEntity.setAccuracy(jsonObject.getString("accuracy"));
+     orderInfoEntity.setBearing(jsonObject.getString("bearing"));
+     //orderInfoEntity.setGpsProvider(jsonObject.getString("gpsProvider"));
+     orderInfoEntity.setSpeed(jsonObject.getString("speed"));
+     orderInfoEntity.setTime(jsonObject.getString("time"));
+     orderInfoEntity.setDescribeContents(jsonObject.getString("describeContents"));
+  
+    
    OrderHandler orderHndlr=new OrderHandler();
-   String result= orderHndlr.addNewOrder(orderInfoEntity, request);
-       
+   String result= orderHndlr.addNewOrder(orderInfoEntity,jsonArray, request);
+ 
     return result;
   }
   

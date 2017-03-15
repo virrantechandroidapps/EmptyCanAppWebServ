@@ -33,7 +33,7 @@ public GDataStoreUtills gDataStreUtills=null;
     try{
       orderInfoEntity.setGpsProvider(null);
       pm.makePersistent(orderInfoEntity);
-      List<CartInfoEntity> cartIList= orderInfoEntity.getCartInfoList();
+      
       jsonObject=new JsonObject();
       int totalNo= GDataStoreUtills.getCount("OrderInfoEntity");
       String orderOTP= HOTPAlgorithm.generateOTP(HOTPAlgorithm.getCode(), totalNo, 4, false, totalNo);
@@ -41,7 +41,7 @@ public GDataStoreUtills gDataStreUtills=null;
       orderInfoEntity.setOrderId(orderId);
       Thread.sleep(200);
       long orderKey=orderInfoEntity.getId().getId();
-      if(cartIList!=null){
+     /* if(cartIList!=null){
          int size=cartIList.size();
          for(int m=0;m<size;m++){
            CartInfoEntity cartInfoEntity=  cartIList.get(m);
@@ -49,7 +49,7 @@ public GDataStoreUtills gDataStreUtills=null;
            pm.makePersistent(cartInfoEntity);
            Thread.sleep(200); 
          }
-      }
+      }*/
       //Thread.sleep(200);
       jsonObject.addProperty("order_server_id", orderKey);
       jsonObject.addProperty("status","success");
@@ -62,6 +62,8 @@ public GDataStoreUtills gDataStreUtills=null;
       e.printStackTrace();
       
     }finally {
+
+    
       pm.close();
     }
 

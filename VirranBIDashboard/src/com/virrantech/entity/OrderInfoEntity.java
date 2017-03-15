@@ -79,8 +79,8 @@ public class OrderInfoEntity  {
   private String userFcmId;
   /*@Persistent(mappedBy = "orderInfoEntity", defaultFetchGroup = "true", loadFetchGroup = "true")
   @OneToMany(mappedBy = "orderInfoEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)*/
-  @NotPersistent
-  private List<CartInfoEntity> cartInfoList;
+ /* @NotPersistent
+  private List<CartInfoEntity> cartInfoList;*/
   @Persistent
   private long distibutorId;
   
@@ -149,15 +149,7 @@ public class OrderInfoEntity  {
   /**
    * @return the cartInfoList
    */
-  public List<CartInfoEntity> getCartInfoList() {
-    return cartInfoList;
-  }
-  /**
-   * @param cartInfoList the cartInfoList to set
-   */
-  public void setCartInfoList(List<CartInfoEntity> cartInfoList) {
-    this.cartInfoList = cartInfoList;
-  }
+ 
   /*@Override
   public int compareTo(OrderInfoEntity o) {
     // TODO Auto-generated method stub

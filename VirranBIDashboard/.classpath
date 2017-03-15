@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-1.0-sdk-1.9.46.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-labs.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-endpoints-deps.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-endpoints.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-jsr107cache-1.9.46.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/asm-5.0.4.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-beanutils-1.7.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-codec-1.6.jar"/>
@@ -64,5 +61,13 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/google-oauth-client-jetty-1.22.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/google-api-client-appengine-1.22.0.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/joda-time-2.9.7.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-1.0-sdk-1.9.50.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-jsr107cache-1.9.50.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.40.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-socket-factory-1.0.0-beta1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-standard-service-0.3.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-entitymanager-4.2.8.Final.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-core-5.0.5.Final.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

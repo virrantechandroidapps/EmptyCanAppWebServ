@@ -7,11 +7,14 @@
     Allows App Engine to send multiple requests to one instance in parallel:
   -->
   <threadsafe>true</threadsafe>
+  <use-google-connector-j>true</use-google-connector-j>
 
   <!-- Configure java.util.logging -->
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     <property name="java.io.tmpdir" value="/"/>
+     <property name="ae-cloudsql.cloudsql-database-url" value="jdbc:google:mysql://virran-emptycan-db-instance/emptycan?user=dev_user1&amp;password=Test@123" />
+    <property name="ae-cloudsql.local-database-url" value="jdbc:mysql://google/emptycan?cloudSqlInstance=virran-emptycan-db-instance&amp;socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;user=dev_user1&amp;password=Test@123&amp;useSSL=false" />
   </system-properties>
 <sessions-enabled>true</sessions-enabled>
   <!--

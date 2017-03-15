@@ -4,21 +4,24 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import com.google.gson.JsonObject;
 import com.virrantech.dao.OrderDAO;
 import com.virrantech.daoimpl.OrderDAOImpl;
+import com.virrantech.entity.CartInfoEntity;
 import com.virrantech.entity.ConsumerProfile;
 import com.virrantech.entity.NotificationEntity;
 import com.virrantech.entity.OrderInfoEntity;
 import com.virrantech.utills.Constants;
 import com.virrantech.utills.DateUtilities;
+import com.virrantech.utills.JSONUtils;
 import com.virrantech.utills.NotificationUtills;
 import com.virrantech.utills.SpringBeanUtils;
 
 public class OrderHandler {
 
-  public String addNewOrder(OrderInfoEntity orderInfoEntity, HttpServletRequest request){
+  public String addNewOrder(OrderInfoEntity orderInfoEntity, JSONArray cartArray, HttpServletRequest request){
    JsonObject  result=null;
    String fcmId= "";
     try{
@@ -34,8 +37,28 @@ public class OrderHandler {
       //orderInfoEntity.setOrderId(orderId);
       OrderDAO  orderDAO=(OrderDAOImpl) SpringBeanUtils.getInstance("/WEB-INF/dispatcher-servlet.xml", "orderDAOImpl",request);
       result=  orderDAO.saveOrder(orderInfoEntity);
+      
      // orderId
       if(result.get("status").getAsString().equals("success")){
+        long orderKey=result.get("order_server_id").getAsLong();
+        int size= cartArray.length();
+        
+        for(int m=0;m<size;m++){
+         JSONObject json=  cartArray.getJSONObject(m);
+         CartInfoEntity cartInfoEntity=new CartInfoEntity();
+         cartInfoEntity.setOrderId(orderKey);
+         cartInfoEntity.setCartBookby(consumerKey);
+         cartInfoEntity.setCartBookDate(DateUtilities.getCurrentDateAsString(DateUtilities.DD_MON_YYYY_24HH_MM_SS));
+         cartInfoEntity.setCartId(json.getInt("cartId"));
+         cartInfoEntity.setCartPrdctId(json.getLong("cartPrdctId"));
+         cartInfoEntity.setCartPrdctName(json.getString("cartPrdctName"));
+         cartInfoEntity.setCartPrdctOffer(json.has("cartPrdctOffer")?json.getString("cartPrdctOffer"):"");
+         cartInfoEntity.setCartPrdctPrice((float)json.getDouble("cartPrdctPrice"));
+         cartInfoEntity.setCartPrdctUnit(json.getInt("cartPrdctUnit"));
+         cartInfoEntity.setCartPrdctQty(json.getInt("cartPrdctQty"));
+         orderDAO.saveCart(cartInfoEntity);
+         Thread.sleep(200); 
+        }
         ConsumerHandler consumerHandler=new ConsumerHandler();
         try {
           if(orderInfoEntity.getRefStatus().equals("HOLDREFERENCE") && orderInfoEntity.getIsFirstTimeBooking().equals("NOT_YET")){
